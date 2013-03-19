@@ -8,16 +8,6 @@ var win = Titanium.UI.createWindow({
 var currentLatitude;
 var currentLongitude;
 
-var fadeIn = Ti.UI.createAnimation({
-    opacity : 1,
-    duration : 250
-});
-
-var fadeOut = Ti.UI.createAnimation({
-    opacity : 0,
-    duration : 250
-});
-
 openDialog = function(evt) {
 
     Ti.API.info('ID: ' + evt.annotation.myid);
@@ -127,30 +117,6 @@ openDialog = function(evt) {
         });
 
     }
-
-};
-
-openModal = function(e) {
-
-    infoView.setVisible(true);
-
-    infoView.animate(fadeIn);
-
-    modalClose.addEventListener('click', closeModal);
-
-};
-
-closeModal = function(e) {
-
-    infoView.animate(fadeOut);
-
-    setTimeout(function() {
-
-        infoView.setVisible(false);
-
-    }, 250);
-
-    Titanium.App.Properties.setBool('modalViewed', true);
 
 };
 
